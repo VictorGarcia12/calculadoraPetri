@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,8 +11,12 @@ export class HomePage {
   resultado: string = "0";
   primeiro_elemento: string = "";
   segundo_elemento: string = "";
+  terceiro_elemento: string = ""
   operador_selecionado: boolean = false;
   operando: string = "";
+  vig: string = "";
+  vigselect:boolean = false;
+
 
 
   constructor() {}
@@ -29,6 +34,14 @@ export class HomePage {
       this.resultado = this.resultado + valor;
     }
 
+  }
+
+  apagar(){
+  }
+
+  virgula(vigala: string) {
+
+
 
   }
 
@@ -42,27 +55,45 @@ export class HomePage {
       console.log("Um operador já foi selecionado");
     }
 
-
   }
-
-  calcular() {
+calcular() {
     if (this.operando == "+") {
-      this.resultado = (parseInt(this.primeiro_elemento) + parseInt(this.segundo_elemento)).toString();
+      this.resultado = (parseFloat(this.primeiro_elemento) + parseFloat(this.segundo_elemento)).toString()
+
+        console.log(this.resultado);
+
+
     } else if (this.operando == "-") {
-      this.resultado = (parseInt(this.primeiro_elemento) - parseInt(this.segundo_elemento)).toString();
+      this.resultado = (parseFloat(this.primeiro_elemento) - parseFloat(this.segundo_elemento)).toString();
+
+
     } else if (this.operando == "/") {
-      this.resultado = (parseInt(this.primeiro_elemento) / parseInt(this.segundo_elemento)).toString();
+      this.resultado = (parseFloat(this.primeiro_elemento) / parseFloat(this.segundo_elemento)).toString();
+
+
     } else if (this.operando == "*"){
-      this.resultado = (parseInt(this.primeiro_elemento) * parseInt(this.segundo_elemento)).toString();
+      this.resultado = (parseFloat(this.primeiro_elemento) * parseFloat(this.segundo_elemento)).toString();
+
+    }else if(this.operando == "√"){
+      this.resultado = Math.sqrt(parseFloat(this.primeiro_elemento)).toString();
+
+    }else if(this.operando == "^"){
+      this.resultado = Math.pow(parseFloat(this.primeiro_elemento), parseFloat(this.segundo_elemento)).toString();
+
     }
-  }
+
+
+    }
+
 
 
   redefinir() {
+
     this.resultado = "0";
     this.primeiro_elemento = "";
     this.segundo_elemento = "";
     this.operando = "";
     this.operador_selecionado = false;
+
   }
 }
