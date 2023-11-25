@@ -5,6 +5,14 @@
     <h1>{{ resultado }}</h1>
   </div>
     <ion-grid>
+
+      <ion-row>        
+        <ion-col><ion-button (click)="operador('√')">√ </ion-button></ion-col>
+        <ion-col><ion-button (click)="operador('^')">x²</ion-button></ion-col>
+        <ion-col><ion-button (click)="redefinir()">C</ion-button></ion-col>
+        <ion-col><ion-button (click)="apagar()">⌫</ion-button></ion-col>
+      </ion-row>
+
       <ion-row>
         <ion-col><ion-button (click)="digito('7')">7</ion-button></ion-col>
         <ion-col><ion-button (click)="digito('8')">8</ion-button></ion-col>
@@ -28,10 +36,12 @@
 
       <ion-row>
         <ion-col><ion-button (click)="digito('0')">0</ion-button></ion-col>
-        <ion-col><ion-button (click)="redefinir()">C</ion-button></ion-col>
-        <ion-col><ion-button (click)="calcular()">=</ion-button></ion-col>
+        <ion-col><ion-button id="igual" (click)="calcular()">=</ion-button></ion-col>
+        <ion-col><ion-button (click)="virgula(',')">,</ion-button></ion-col>
         <ion-col><ion-button (click)="operador('/')">/</ion-button></ion-col>
       </ion-row>
+
+
     </ion-grid>
   </div>
 </ion-content>
